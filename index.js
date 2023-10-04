@@ -1,5 +1,6 @@
 const http = require('http');
 const fs = require('fs');
+const querystring = require('querystring'); // Import the querystring module
 const port = 3000; // Set your desired port
 
 const server = http.createServer((req, res) => {
@@ -11,8 +12,11 @@ const server = http.createServer((req, res) => {
         });
 
         req.on('end', () => {
-            const email = body.trim();
-            if (email && isValidEmail(email)) {
+            // Parse the URL-encoded data
+            const parsedData = querystring.parse(body);
+            const email = parsedData.email;
+
+            if (email) {
                 fs.appendFile('waitlist.txt', email + '\n', (err) => {
                     if (err) {
                         console.error(err);
@@ -37,6 +41,7 @@ const server = http.createServer((req, res) => {
 server.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
+
 
 function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
