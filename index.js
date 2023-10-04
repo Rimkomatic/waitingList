@@ -3,6 +3,8 @@ const fs = require('fs');
 const querystring = require('querystring'); // Import the querystring module
 const port = 3000; // Set your desired port
 
+process.chdir("https://github.com/W41K3R0/waitingList")
+
 const server = http.createServer((req, res) => {
     if (req.method === 'POST' && req.url === '/add-email') {
         let body = '';
@@ -17,7 +19,7 @@ const server = http.createServer((req, res) => {
             const email = parsedData.email;
 
             if (email) {
-                fs.appendFile('./etc/secrets/emaillist.txt', email + '\n', (err) => {
+                fs.appendFile('./waitlist.txt', email + '\n', (err) => {
                     if (err) {
                         console.error(err);
                         res.statusCode = 500;
