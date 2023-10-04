@@ -17,7 +17,7 @@ const server = http.createServer((req, res) => {
             const email = parsedData.email;
 
             if (email) {
-                fs.appendFile(' /etc/secrets/emaillist.txt', email + '\n', (err) => {
+                fs.appendFile('./etc/secrets/emaillist.txt', email + '\n', (err) => {
                     if (err) {
                         console.error(err);
                         res.statusCode = 500;
