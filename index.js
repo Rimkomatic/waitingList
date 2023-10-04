@@ -9,7 +9,7 @@ const port = 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Replace with your Google Docs API credentials file
-const credentials = require('./waiting-list-401015-45c81134bfa4.json');
+const credentials = require('./etc/secrets/emaillist.json');
 
 // Define the Google Docs document ID where you want to write the email IDs
 const documentId = '1G_fR1_wgP-0NfhqV9yWQakmi3UvJNV2r5q6OupK4r9Y';
