@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const schema = new mongoose.schema({
+const schema = new mongoose.Schema({
     id : {
         type: Number ,
         required: true
