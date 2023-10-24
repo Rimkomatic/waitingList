@@ -11,7 +11,7 @@ async function httpAddNewEmail(req,res)
     // console.log(email)
 
     await emailModel.addNewEmail(email)
-    res.status(200).redirect('shadov-inc.vercel.app');
+    res.status(200).send('you are regestered!');
  
 }
 
