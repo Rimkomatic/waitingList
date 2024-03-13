@@ -2,6 +2,7 @@ const http = require('http')
 const express = require('express');
 const mongo = require('./database/mongo')
 const dotenv = require('dotenv')
+const bodyParser = require('body-parser');
 
 
 const emailRouter = require('./routes/email.router')
@@ -11,6 +12,8 @@ const port = 8000;
 
 
 const server = http.createServer(app)
+
+app.use(bodyParser.json());
 
 dotenv.config()
 
